@@ -1,0 +1,170 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ExternalLink, Github } from 'lucide-react';
+import { Link } from '../Navigation';
+import Image from '../Image';
+import SectionTitle from '../SectionTitle';
+
+interface Project {
+  title: string;
+  desc: string;
+  devstack: string;
+  link?: string;
+  git: string;
+  type: string;
+  image: string;
+}
+
+const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
+  // Projects data
+  const projects: Project[] = [
+    {
+      title: "PrepPal",
+      desc: "PrepPal is an AI-powered interview preparation bot that helps students practice behavioral interviews by generating personalized, industry-specific questions based on their resumes. It evaluates video responses, tracks progress using a database, and features real-time video analysis to provide tailored feedback using Gen AI.",
+      devstack: "React, Javascript, Tailwind CSS, Flask, Python, OpenAI, GCP, Cohere, Open CV, SQLite, SQLAlchemy",
+      link: "https://www.youtube.com/watch?v=0uulnpFgpyc&ab_channel=Yes",
+      git: "https://github.com/Ajith-Bondili/ai-interviewer",
+      type: "Fullstack",
+      image: "https://images.pexels.com/photos/7504837/pexels-photo-7504837.jpeg"
+    },
+    {
+      title: "ErgoType",
+      desc: "A typing test game which uses Javascript, HTML and CSS to track ones WPM by typing the words on the screen in the set amount of time.",
+      devstack: "Javascript, HTML, CSS",
+      link: "https://ajith-bondili.github.io/TypingTest/",
+      git: "https://github.com/Ajith-Bondili/TypingTest",
+      type: "Frontend",
+      image: "https://images.pexels.com/photos/6954154/pexels-photo-6954154.jpeg"
+    },
+    {
+      title: "Instagram Unfollower",
+      desc: "Bot that unfollows accounts that do not follow the user back",
+      devstack: "Python, Selenium",
+      git: "https://github.com/Ajith-Bondili/Instagram-Unfollower",
+      type: "Backend",
+      image: "https://images.pexels.com/photos/39284/macbook-apple-imac-computer-39284.jpeg"
+    },
+    {
+      title: "Auto Alert",
+      desc: "Hackathon Project: Developed with 3 others, a real-time vehicle security application that detects potential car thefts and sends immediate alerts to owners and police.",
+      devstack: "React Native, Typescript, Python, Javascript, OpenCV, Twilio, Roboflow",
+      git: "https://github.com/Ajith-Bondili/Auto-Alert",
+      type: "Fullstack",
+      image: "https://images.pexels.com/photos/2277784/pexels-photo-2277784.jpeg"
+    },
+    {
+      title: "Stroop Effect Game",
+      desc: "A brain challenge game based on the Stroop Effect, a psychological test where players must process conflicting information between text and color.",
+      devstack: "React, Javascript, React Router, Framer Motion, Tailwind CSS",
+      link: "https://stroop-effect-game.vercel.app/",
+      git: "https://github.com/Ajith-Bondili/Stroop-Effect-Game",
+      type: "Frontend",
+      image: "https://images.pexels.com/photos/7168948/pexels-photo-7168948.jpeg"
+    },
+    {
+      title: "Portfolio Website",
+      desc: "This portfolio website you are currently interacting with!",
+      devstack: "React, Javascript, Framer Motion, Tailwind CSS",
+      link: "#",
+      git: "https://github.com/Ajith-Bondili/dev-portfolio-react-tailiwind",
+      type: "Frontend",
+      image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg"
+    },
+  ];
+
+  return (
+    <section id="portfolio" ref={ref} className="py-16 md:py-24 relative">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="max-w-screen-lg mx-auto">
+          <SectionTitle>
+            Featured <span className="text-gradient">Projects</span>
+          </SectionTitle>
+
+          <div className="space-y-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group glow-container project-item"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                  <div className={`${index % 2 === 0 ? "order-1" : "order-1 md:order-2"}`}>
+                    <div className="relative overflow-hidden rounded-lg border border-white/10 bg-[#151515]/80 backdrop-blur-sm">
+                      <div className="absolute inset-0 bg-gradient-to-r from-sky-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={500}
+                        height={300}
+                        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  </div>
+
+                  <div className={`${index % 2 === 0 ? "order-2" : "order-2 md:order-1"}`}>
+                    <div className="space-y-4">
+                      <div className="flex items-center">
+                        <span className="text-sm font-medium px-3 py-1 rounded-full bg-sky-400/10 text-sky-400 mr-3">
+                          {project.type}
+                        </span>
+                        <h3 className="text-2xl font-bold">{project.title}</h3>
+                      </div>
+
+                      <p className="text-white/70">{project.desc}</p>
+
+                      <div className="pt-2">
+                        <h4 className="text-sm font-medium text-sky-400 mb-2">Tech Stack:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.devstack.split(", ").map((tech, i) => (
+                            <span key={i} className="text-xs px-2 py-1 bg-white/5 rounded-md text-white/60">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex gap-4 pt-4">
+                        {project.link && (
+                          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                            <Link
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-4 py-2 bg-sky-400/10 text-sky-400 rounded-md hover:bg-sky-400/20 transition-colors"
+                            >
+                              <ExternalLink size={16} />
+                              View Project
+                            </Link>
+                          </motion.div>
+                        )}
+
+                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                          <Link
+                            href={project.git}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 text-white/70 rounded-md hover:bg-white/10 transition-colors"
+                          >
+                            <Github size={16} />
+                            View Code
+                          </Link>
+                        </motion.div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+});
+
+Portfolio.displayName = 'Portfolio';
+
+export default Portfolio;
