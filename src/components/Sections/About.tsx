@@ -53,11 +53,9 @@ const About = React.forwardRef<HTMLElement>((props, ref) => {
                         alt="University of Waterloo Seal"
                         width={400}
                         height={200}
-                        className="w-full h-auto object-cover"
+                        className="w-full h-auto object-scale-down"
                       />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                        <p className="text-sm text-white font-medium">University of Waterloo Seal</p>
-                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">                      </div>
                     </div>
                   </div>
                 </div>
@@ -110,11 +108,31 @@ const About = React.forwardRef<HTMLElement>((props, ref) => {
                         />
                       </div>
                     </div>
+                    <div>
+                      <div className="flex justify-between mb-1">
+                        <span className="text-sm font-medium text-white">Cloud</span>
+                        <span className="text-sm font-medium text-sky-400">65%</span>
+                      </div>
+                      <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                        <motion.div
+                          className="h-full bg-sky-400 rounded-full"
+                          initial={{ width: "0%" }}
+                          whileInView={{ width: "65%" }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, delay: 0.7 }}
+                        />
+                      </div>
+                    </div>
                   </div>
 
+                  <h3 className="text-2xl font-bold mb-6 flex items-center">
+                  <span className="w-8 h-8 rounded-md bg-sky-400/20 flex items-center justify-center mr-3">
+                    <Database size={16} className="text-sky-400" />
+                  </span>
+                  What drives me
+                </h3>
                   <p>
-                    I am actively working towards a career in Machine Learning, driven by my fascination with the
-                    significant impact these technologies have on people's everyday lives.
+                  I am on a mission to explore how AI and Machine Learning can unlock new ways to improve lives, from smarter systems to more inclusive tech. Whether it’s optimizing an experience or building something from scratch, I’m always aiming to push boundaries and learn by doing.
                   </p>
                 </div>
               </div>
@@ -130,41 +148,26 @@ const About = React.forwardRef<HTMLElement>((props, ref) => {
 
                 <div className="space-y-6 text-white/70">
                   <div className="space-y-3">
-                    <h4 className="text-sky-400 font-medium">Frameworks</h4>
+                    <h4 className="text-sky-400 font-medium">Core Stack</h4>
                     <ul className="space-y-1">
                       <li className="flex items-center">
                         <Check size={12} className="mr-2 text-sky-400" /> React
                       </li>
                       <li className="flex items-center">
-                        <Check size={12} className="mr-2 text-sky-400" /> React Native
+                        <Check size={12} className="mr-2 text-sky-400" /> Tailwind CSS
                       </li>
                       <li className="flex items-center">
-                        <Check size={12} className="mr-2 text-sky-400" /> Node.js
+                        <Check size={12} className="mr-2 text-sky-400" /> Flask
                       </li>
                       <li className="flex items-center">
-                        <Check size={12} className="mr-2 text-sky-400" /> Next.js
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="space-y-3">
-                    <h4 className="text-sky-400 font-medium">Technologies</h4>
-                    <ul className="space-y-1">
-                      <li className="flex items-center">
-                        <Check size={12} className="mr-2 text-sky-400" /> Git
-                      </li>
-                      <li className="flex items-center">
-                        <Check size={12} className="mr-2 text-sky-400" /> Firebase
-                      </li>
-                      <li className="flex items-center">
-                        <Check size={12} className="mr-2 text-sky-400" /> Hadoop
-                      </li>
-                      <li className="flex items-center">
-                        <Check size={12} className="mr-2 text-sky-400" /> REST APIs
+                        <Check size={12} className="mr-2 text-sky-400" /> PostgreSQL
                       </li>
                     </ul>
                   </div>
                 </div>
+                <p className="text-white/70 mt-6">
+                  I enjoy using this stack at a multitude of hackathons I've attended. I've found it quick to whip up scalable backends, modern UIs, and data-intensive applications.
+                </p>
               </div>
             </div>
           </motion.div>

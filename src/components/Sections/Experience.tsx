@@ -23,24 +23,24 @@ const Experience = React.forwardRef<HTMLElement, ExperienceProps>(({ activeExper
       company: "Friedmann.AI",
       period: "May 2025 - Present",
       description:
-        "Developing cutting-edge AI solutions for enterprise clients, focusing on natural language processing and computer vision applications.",
-      skills: ["Python", "TensorFlow", "PyTorch", "Computer Vision", "NLP"],
+        "Building an AI-powered chat platform in collaboration with IBM engineers, with a focus on agentic reasoning, document ingestion, and conversational search. Contributing to backend API development, integrating LLM guardrails, and experimenting with advanced tools for web-based agent workflows.",
+      skills: ["Next.js", "Node.js", "React", "Supabase", "Serverless Functions", "MongoDB", "Docker", "Postman", "AI Agents", "RAG"],
     },
     {
       title: "Machine Learning Engineer",
       company: "Wat.ai",
       period: "March 2025 - Present",
       description:
-        "Building and deploying machine learning models for predictive analytics and data-driven decision making.",
-      skills: ["Python", "Scikit-learn", "Pandas", "Data Analysis", "AWS"],
+        "Developing MindMirror, an AI-powered journaling app that summarizes user reflections and identifies emotional patterns. Collaborating with a cross-functional team to build emotion classification models, support mental wellness insights, and create a seamless journaling experience.",
+      skills: ["Python", "PyTorch", "Transformers", "Emotion Classification", "AWS Lambda", "Google Cloud Functions", "Swift", "Hugging Face"],
     },
     {
       title: "Software Engineer",
       company: "Cita Marketplace",
       period: "June 2024 - August 2024",
       description:
-        "Developed and maintained e-commerce platform features, improving user experience and transaction processing efficiency.",
-      skills: ["JavaScript", "React", "Node.js", "MongoDB", "AWS"],
+      "Contributed to the backend by designing APIs, devloped unit tests, optimized SQL queries, and utiliized OOP principles.",
+      skills: ["Python", "Flask", "SQL", "REST APIs", "OOP"],
     },
   ];
 

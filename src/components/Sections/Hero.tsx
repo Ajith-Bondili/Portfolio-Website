@@ -4,6 +4,10 @@ import { FileText, ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 import { Link } from '../Navigation';
 import Image from '../Image';
 import ShootingStars from './ShootingStars';
+//import waterl from '../../assets/images/University_of_Waterloo_seal.svg.png';
+import HeroIcon from '../../assets/images/heroicon.png';
+
+
 
 const Hero = React.forwardRef<HTMLElement>((props, ref) => {
   return (
@@ -28,7 +32,7 @@ const Hero = React.forwardRef<HTMLElement>((props, ref) => {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-sky-400 to-sky-600 rounded-2xl blur-xl opacity-10 animate-pulse-slow"></div>
               <div className="hero-image-container relative bg-[#1A1A1A] border border-white/10 rounded-2xl overflow-hidden w-full max-w-md mx-auto aspect-square">
                 <Image
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
+                  src={HeroIcon}
                   alt="Ajith Bondili"
                   width={400}
                   height={400}
@@ -102,11 +106,11 @@ const Hero = React.forwardRef<HTMLElement>((props, ref) => {
               <div className="hero-text-container">
                 <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
                   <div className="hero-text-line">
-                    <span>Transforming Ideas</span>
+                    <span>Coding Ideas</span>
                   </div>
                   <div className="hero-text-line">
                     <span>
-                      Into <span className="text-gradient">Digital Reality</span>
+                      Into a <span className="text-gradient">Digital Reality</span>
                     </span>
                   </div>
                 </h1>

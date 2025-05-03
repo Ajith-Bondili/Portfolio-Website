@@ -4,20 +4,43 @@ import { ExternalLink, Github } from 'lucide-react';
 import { Link } from '../Navigation';
 import Image from '../Image';
 import SectionTitle from '../SectionTitle';
+import StroopImg from '../../assets/images/Stroop.png';
+import ErgoTypeImg from '../../assets/images/ergotype.png';
+import UnfollowerImg from '../../assets/images/unfollower.png';
+import AutoAlertImg from '../../assets/images/autoAlert.png';
+import PortfolioImg from '../../assets/images/portfolioimage2.png';
+import PreppalImg from '../../assets/images/PrepalCover.png';
+import CarPredictor from '../../assets/images/carpredictor.png';
+import SecureChatbot from '../../assets/images/SecureChatbot.png'
 
 interface Project {
   title: string;
   desc: string;
   devstack: string;
   link?: string;
-  git: string;
+  git?: string;
   type: string;
-  image: string;
+  image: string; // now refers to imported asset
 }
 
 const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
   // Projects data
   const projects: Project[] = [
+    {
+      title: "Used Car Price Predictor",
+      desc: `Built a linear regression model in Azure to predict used car prices. Handled data preparation, model training, and deployment as a real-time endpoint using Azure Container Instances.`,
+      devstack: "Azure ML Studio, Azure Container Instances, Python, Azure ML SDK",
+      type: "ML Cloud",
+      image: CarPredictor
+    },
+    {
+      title: "SecureChatbot",
+      desc: `Privacy-first AI chatbot for Sun Life Financial company, aimed to answers questions from structured financial PDFs using a Retrieval-Augmented Generation (RAG) pipeline.`,
+      devstack: "Python, LangChain, ChromaDB, FastAPI, InstructorEmbeddings, LlamaCpp",
+      git: "https://github.com/Ajith-Bondili/SecureChatbot",
+      type: "Backend",
+      image: SecureChatbot
+    },
     {
       title: "PrepPal",
       desc: "PrepPal is an AI-powered interview preparation bot that helps students practice behavioral interviews by generating personalized, industry-specific questions based on their resumes. It evaluates video responses, tracks progress using a database, and features real-time video analysis to provide tailored feedback using Gen AI.",
@@ -25,7 +48,7 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
       link: "https://www.youtube.com/watch?v=0uulnpFgpyc&ab_channel=Yes",
       git: "https://github.com/Ajith-Bondili/ai-interviewer",
       type: "Fullstack",
-      image: "https://images.pexels.com/photos/7504837/pexels-photo-7504837.jpeg"
+      image: PreppalImg
     },
     {
       title: "ErgoType",
@@ -34,7 +57,7 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
       link: "https://ajith-bondili.github.io/TypingTest/",
       git: "https://github.com/Ajith-Bondili/TypingTest",
       type: "Frontend",
-      image: "https://images.pexels.com/photos/6954154/pexels-photo-6954154.jpeg"
+      image: ErgoTypeImg
     },
     {
       title: "Instagram Unfollower",
@@ -42,7 +65,7 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
       devstack: "Python, Selenium",
       git: "https://github.com/Ajith-Bondili/Instagram-Unfollower",
       type: "Backend",
-      image: "https://images.pexels.com/photos/39284/macbook-apple-imac-computer-39284.jpeg"
+      image: UnfollowerImg
     },
     {
       title: "Auto Alert",
@@ -50,7 +73,7 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
       devstack: "React Native, Typescript, Python, Javascript, OpenCV, Twilio, Roboflow",
       git: "https://github.com/Ajith-Bondili/Auto-Alert",
       type: "Fullstack",
-      image: "https://images.pexels.com/photos/2277784/pexels-photo-2277784.jpeg"
+      image: AutoAlertImg
     },
     {
       title: "Stroop Effect Game",
@@ -59,16 +82,15 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
       link: "https://stroop-effect-game.vercel.app/",
       git: "https://github.com/Ajith-Bondili/Stroop-Effect-Game",
       type: "Frontend",
-      image: "https://images.pexels.com/photos/7168948/pexels-photo-7168948.jpeg"
+      image: StroopImg
     },
     {
       title: "Portfolio Website",
-      desc: "This portfolio website you are currently interacting with!",
-      devstack: "React, Javascript, Framer Motion, Tailwind CSS",
-      link: "#",
-      git: "https://github.com/Ajith-Bondili/dev-portfolio-react-tailiwind",
+      desc: "The portfolio website you are currently interacting with!",
+      devstack: "React, Typescript, Framer Motion, Tailwind CSS, Vite",
+      git: "https://github.com/Ajith-Bondili/Portfolio-Website",
       type: "Frontend",
-      image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg"
+      image: PortfolioImg
     },
   ];
 
@@ -99,7 +121,7 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
                         alt={project.title}
                         width={500}
                         height={300}
-                        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-64 object-contain transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
                   </div>
@@ -141,6 +163,7 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
                           </motion.div>
                         )}
 
+                        {project.git && (
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                           <Link
                             href={project.git}
@@ -152,6 +175,7 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
                             View Code
                           </Link>
                         </motion.div>
+                      )}
                       </div>
                     </div>
                   </div>

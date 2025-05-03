@@ -34,7 +34,7 @@ const Contact = React.forwardRef<HTMLElement>((props, ref) => {
                   <div>
                     <h4 className="text-lg font-medium mb-1">Email</h4>
                     <Link
-                      href="mailto:ajithbondili05@gmail.com"
+                      href="mailto:ajithbon05@gmail.com"
                       className="text-white/70 hover:text-sky-400 transition-colors"
                     >
                       ajithbondili05@gmail.com

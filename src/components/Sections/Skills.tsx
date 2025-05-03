@@ -10,6 +10,18 @@ import {
   SiCss3,
   SiC,
   SiCplusplus,
+  SiFlask,
+  SiSpring,
+  SiDjango,
+  SiFastapi,
+  SiNodedotjs,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiDocker,
+  SiPostgresql,
+  SiMongodb,
+  SiOpencv,
 } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
 import SectionTitle from '../SectionTitle';
@@ -33,6 +45,16 @@ const Skills = React.forwardRef<HTMLElement>((props, ref) => {
     { id: 8, name: "Java", icon: <FaJava size={32} /> },
     { id: 9, name: "C", icon: <SiC size={32} /> },
     { id: 10, name: "C++", icon: <SiCplusplus size={32} /> },
+    { id: 11, name: "React", icon: <SiReact size={32} /> },
+    { id: 12, name: "Next.js", icon: <SiNextdotjs size={32} /> },
+    { id: 13, name: "Tailwind CSS", icon: <SiTailwindcss size={32} /> },
+    { id: 14, name: "Node.js", icon: <SiNodedotjs size={32} /> },
+    { id: 15, name: "Flask", icon: <SiFlask size={32} /> },
+    { id: 16, name: "Django", icon: <SiDjango size={32} /> },
+    { id: 17, name: "FastAPI", icon: <SiFastapi size={32} /> },
+    { id: 18, name: "Spring", icon: <SiSpring size={32} /> },
+    { id: 19, name: "PostgreSQL", icon: <SiPostgresql size={32} /> },
+    { id: 20, name: "MongoDB", icon: <SiMongodb size={32} /> },
   ];
 
   return (
@@ -55,7 +77,7 @@ const Skills = React.forwardRef<HTMLElement>((props, ref) => {
                   scale: 1.05,
                   transition: { duration: 0.2 },
                 }}
-                className="skill-card rounded-lg p-6 flex flex-col items-center justify-center"
+                className="skill-card rounded-lg p-4 flex flex-col items-center justify-center"
               >
                 <div className="skill-icon text-white/40 mb-4">{skill.icon}</div>
                 <p className="skill-name text-white/70 text-center">{skill.name}</p>
