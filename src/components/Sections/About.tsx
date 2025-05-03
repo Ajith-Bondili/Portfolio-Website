@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Database, Cpu, Check } from 'lucide-react';
+import { Code, Database, Cpu, Check, Axe } from 'lucide-react';
 import Image from '../Image';
 import SectionTitle from '../SectionTitle';
 import WaterlooSeal from '../../assets/images/University_of_Waterloo_seal.svg.png';
@@ -127,7 +127,7 @@ const About = React.forwardRef<HTMLElement>((props, ref) => {
 
                   <h3 className="text-2xl font-bold mb-6 flex items-center">
                   <span className="w-8 h-8 rounded-md bg-sky-400/20 flex items-center justify-center mr-3">
-                    <Database size={16} className="text-sky-400" />
+                    <Axe size={16} className="text-sky-400" />
                   </span>
                   What drives me
                 </h3>

@@ -73,7 +73,7 @@ const Hero = React.forwardRef<HTMLElement>((props, ref) => {
               </motion.a>
 
               <motion.a
-                href="mailto:ajithbondili05@gmail.com"
+                href="mailto:ajithbon05@gmail.com"
                 className="w-10 h-10 rounded-md bg-white/5 flex items-center justify-center text-white/60 hover:bg-sky-400/20 hover:text-sky-400 transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}

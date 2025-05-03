@@ -23,7 +23,7 @@ const Experience = React.forwardRef<HTMLElement, ExperienceProps>(({ activeExper
       company: "Friedmann.AI",
       period: "May 2025 - Present",
       description:
-        "Building an AI-powered chat platform in collaboration with IBM engineers, with a focus on agentic reasoning, document ingestion, and conversational search. Contributing to backend API development, integrating LLM guardrails, and experimenting with advanced tools for web-based agent workflows.",
+        "Building an AI-powered chat platform in collaboration with IBM engineers, with a focus on agentic reasoning, document ingestion, and conversational search. Contributing to backend API development and integrating LLM guardrails for an unbiased personal financial guide.",
       skills: ["Next.js", "Node.js", "React", "Supabase", "Serverless Functions", "MongoDB", "Docker", "Postman", "AI Agents", "RAG"],
     },
     {
@@ -31,7 +31,7 @@ const Experience = React.forwardRef<HTMLElement, ExperienceProps>(({ activeExper
       company: "Wat.ai",
       period: "March 2025 - Present",
       description:
-        "Developing MindMirror, an AI-powered journaling app that summarizes user reflections and identifies emotional patterns. Collaborating with a cross-functional team to build emotion classification models, support mental wellness insights, and create a seamless journaling experience.",
+        "Developing MindMirror, an AI-powered journaling app that summarizes user reflections and identifies emotional patterns. Building emotion classification models to support mental wellness insights and create a seamless journaling experience.",
       skills: ["Python", "PyTorch", "Transformers", "Emotion Classification", "AWS Lambda", "Google Cloud Functions", "Swift", "Hugging Face"],
     },
     {
