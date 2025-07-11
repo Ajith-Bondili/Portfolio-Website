@@ -6,7 +6,7 @@ import SectionTitle from '../SectionTitle';
 
 const Contact = React.forwardRef<HTMLElement>((props, ref) => {
   return (
-    <section id="contact" ref={ref} className="py-16 md:py-24 bg-[#0F0F0F]">
+    <section id="contact" ref={ref} className="py-16 md:py-24 relative">
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-screen-lg mx-auto">
           <SectionTitle>

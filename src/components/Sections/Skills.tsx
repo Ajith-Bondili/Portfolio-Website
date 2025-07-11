@@ -87,7 +87,7 @@ const Skills = React.forwardRef<HTMLElement>((props, ref) => {
   );
 
   return (
-    <section id="skills" ref={ref} className="py-16 md:py-24 bg-[#0F0F0F]">
+    <section id="skills" ref={ref} className="py-16 md:py-24 relative">
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-screen-lg mx-auto">
           <SectionTitle>
