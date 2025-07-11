@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 import { Link } from '../Navigation';
 import Image from '../Image';
-import ShootingStars from './ShootingStars';
+import { Boxes } from '../ui/background-boxes';
 //import waterl from '../../assets/images/University_of_Waterloo_seal.svg.png';
 import HeroIcon from '../../assets/images/heroicon.png';
 
@@ -16,8 +16,8 @@ const Hero = React.forwardRef<HTMLElement>((props, ref) => {
       ref={ref}
       className="min-h-screen flex flex-col justify-center relative overflow-hidden py-20"
     >
-      {/* Shooting star background */}
-      <ShootingStars />
+      {/* Background boxes effect */}
+      <Boxes />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="hero-layout items-center">
