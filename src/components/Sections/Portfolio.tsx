@@ -4,6 +4,7 @@ import { ExternalLink, Github } from 'lucide-react';
 import { Link } from '../Navigation';
 import Image from '../Image';
 import SectionTitle from '../SectionTitle';
+import { HoverEffect } from '../ui/card-hover-effect';
 import StroopImg from '../../assets/images/Stroop.png';
 import ErgoTypeImg from '../../assets/images/ergotype.png';
 import UnfollowerImg from '../../assets/images/unfollower.png';
@@ -94,6 +95,86 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
     },
   ];
 
+  // Convert projects to hover effect items
+  const projectCards = projects.map((project, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="project-item"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-6">
+        <div className={`${index % 2 === 0 ? "order-1" : "order-1 md:order-2"}`}>
+          <div className="relative overflow-hidden rounded-lg border border-white/10 bg-[#151515]/80 backdrop-blur-sm">
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={500}
+              height={300}
+              className="w-full h-64 object-contain"
+            />
+          </div>
+        </div>
+
+        <div className={`${index % 2 === 0 ? "order-2" : "order-2 md:order-1"}`}>
+          <div className="space-y-4">
+            <div className="flex items-center">
+              <span className="text-sm font-medium px-3 py-1 rounded-full bg-sky-400/10 text-sky-400 mr-3">
+                {project.type}
+              </span>
+              <h3 className="text-2xl font-bold">{project.title}</h3>
+            </div>
+
+            <p className="text-white/70">{project.desc}</p>
+
+            <div className="pt-2">
+              <h4 className="text-sm font-medium text-sky-400 mb-2">Tech Stack:</h4>
+              <div className="flex flex-wrap gap-2">
+                {project.devstack.split(", ").map((tech, i) => (
+                  <span key={i} className="text-xs px-2 py-1 bg-white/5 rounded-md text-white/60">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex gap-4 pt-4">
+              {project.link && (
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-sky-400/10 text-sky-400 rounded-md hover:bg-sky-400/20 transition-colors"
+                  >
+                    <ExternalLink size={16} />
+                    View Project
+                  </Link>
+                </motion.div>
+              )}
+
+              {project.git && (
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href={project.git}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 text-white/70 rounded-md hover:bg-white/10 transition-colors"
+                >
+                  <Github size={16} />
+                  View Code
+                </Link>
+              </motion.div>
+            )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  ));
+
   return (
     <section id="portfolio" ref={ref} className="py-16 md:py-24 relative">
       <div className="container mx-auto px-6 md:px-12">
@@ -102,87 +183,7 @@ const Portfolio = React.forwardRef<HTMLElement>((props, ref) => {
             Featured <span className="text-gradient">Projects</span>
           </SectionTitle>
 
-          <div className="space-y-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group glow-container project-item"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                  <div className={`${index % 2 === 0 ? "order-1" : "order-1 md:order-2"}`}>
-                    <div className="relative overflow-hidden rounded-lg border border-white/10 bg-[#151515]/80 backdrop-blur-sm">
-                      <div className="absolute inset-0 bg-gradient-to-r from-sky-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        width={500}
-                        height={300}
-                        className="w-full h-64 object-contain transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
-                  </div>
-
-                  <div className={`${index % 2 === 0 ? "order-2" : "order-2 md:order-1"}`}>
-                    <div className="space-y-4">
-                      <div className="flex items-center">
-                        <span className="text-sm font-medium px-3 py-1 rounded-full bg-sky-400/10 text-sky-400 mr-3">
-                          {project.type}
-                        </span>
-                        <h3 className="text-2xl font-bold">{project.title}</h3>
-                      </div>
-
-                      <p className="text-white/70">{project.desc}</p>
-
-                      <div className="pt-2">
-                        <h4 className="text-sm font-medium text-sky-400 mb-2">Tech Stack:</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {project.devstack.split(", ").map((tech, i) => (
-                            <span key={i} className="text-xs px-2 py-1 bg-white/5 rounded-md text-white/60">
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="flex gap-4 pt-4">
-                        {project.link && (
-                          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                            <Link
-                              href={project.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 px-4 py-2 bg-sky-400/10 text-sky-400 rounded-md hover:bg-sky-400/20 transition-colors"
-                            >
-                              <ExternalLink size={16} />
-                              View Project
-                            </Link>
-                          </motion.div>
-                        )}
-
-                        {project.git && (
-                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                          <Link
-                            href={project.git}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 text-white/70 rounded-md hover:bg-white/10 transition-colors"
-                          >
-                            <Github size={16} />
-                            View Code
-                          </Link>
-                        </motion.div>
-                      )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <HoverEffect items={projectCards} />
         </div>
       </div>
     </section>
