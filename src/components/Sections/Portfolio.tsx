@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ExternalLink, Github } from 'lucide-react';
 import { Link } from '../Navigation';
 import Image from '../Image';

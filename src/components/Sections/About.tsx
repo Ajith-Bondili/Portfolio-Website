@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Code, Database, Cpu, Check, Axe } from 'lucide-react';
 import Image from '../Image';
 import SectionTitle from '../SectionTitle';

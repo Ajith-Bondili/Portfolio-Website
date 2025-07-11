@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 import { Link } from '../Navigation';
 import Image from '../Image';
@@ -86,12 +86,7 @@ const Hero = React.forwardRef<HTMLElement>((props, ref) => {
 
           {/* Right side - Main content */}
           <div className="flex flex-col justify-center space-y-8">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-              className="space-y-6"
-            >
+            <div className="space-y-6">
               <div className="inline-block">
                 <motion.div
                   className="px-4 py-1 border border-sky-400/30 rounded-full text-sky-400 text-sm font-medium bg-sky-400/5"
@@ -106,24 +101,70 @@ const Hero = React.forwardRef<HTMLElement>((props, ref) => {
               <div className="hero-text-container">
                 <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
                   <div className="hero-text-line">
-                    <span>Coding Ideas</span>
+                    {"Coding Ideas".split(" ").map((word, index) => (
+                      <motion.span
+                        key={index}
+                        initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
+                        animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                        transition={{
+                          duration: 0.4,
+                          delay: 0.4 + index * 0.1,
+                          ease: "easeInOut",
+                        }}
+                        className="mr-3 inline-block"
+                      >
+                        {word}
+                      </motion.span>
+                    ))}
                   </div>
                   <div className="hero-text-line">
-                    <span>
-                      Into a <span className="text-gradient">Digital Reality</span>
-                    </span>
+                    {"Into a".split(" ").map((word, index) => (
+                      <motion.span
+                        key={index}
+                        initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
+                        animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                        transition={{
+                          duration: 0.4,
+                          delay: 0.6 + index * 0.1,
+                          ease: "easeInOut",
+                        }}
+                        className="mr-3 inline-block"
+                      >
+                        {word}
+                      </motion.span>
+                    ))}
+                    <motion.span
+                      initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
+                      animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                      transition={{
+                        duration: 0.4,
+                        delay: 0.8,
+                        ease: "easeInOut",
+                      }}
+                      className="text-gradient inline-block"
+                    >
+                      Reality
+                    </motion.span>
                   </div>
                 </h1>
               </div>
 
-              <p className="text-xl text-white/60 max-w-lg">
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 1.0 }}
+                className="text-xl text-white/60 max-w-lg"
+              >
                 I'm <span className="text-sky-400 font-medium">Ajith Bondili</span>, a full-stack developer
                 passionate about creating innovative solutions that provide users with exceptional experiences.
-              </p>
+              </motion.p>
 
-              <div className="flex flex-wrap gap-4 pt-4">
-
-
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 1.2 }}
+                className="flex flex-wrap gap-4 pt-4"
+              >
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Link
                     href="#portfolio"
@@ -133,13 +174,18 @@ const Hero = React.forwardRef<HTMLElement>((props, ref) => {
                     <ArrowRight size={16} />
                   </Link>
                 </motion.div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 1.4 }}
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
+      >
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
@@ -154,7 +200,7 @@ const Hero = React.forwardRef<HTMLElement>((props, ref) => {
             />
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 });

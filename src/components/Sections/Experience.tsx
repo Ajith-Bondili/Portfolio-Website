@@ -1,6 +1,7 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import SectionTitle from '../SectionTitle';
+import { Timeline } from '../ui/timeline';
 
 interface ExperienceItem {
   title: string;
@@ -44,31 +45,68 @@ const Experience = React.forwardRef<HTMLElement, ExperienceProps>(({ activeExper
     },
   ];
 
+  // Transform experience data for Timeline component
+  const timelineData = experiences.map((experience, index) => ({
+    title: experience.period,
+    content: (
+      <div 
+        ref={(el) => (experienceRefs.current[index] = el)}
+        className={`timeline-content bg-gradient-to-br from-[#151515]/80 to-[#0a0a0a]/80 backdrop-blur-lg border rounded-lg p-6 transition-all duration-500 ${
+          activeExperience === index 
+            ? 'border-sky-400/50 shadow-[0_0_30px_rgba(56,189,248,0.3)] scale-105' 
+            : 'border-white/10 shadow-lg'
+        }`}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+        >
+          <h4 className="text-xl md:text-2xl font-bold text-sky-400 mb-2">
+            {experience.title}
+          </h4>
+          <p className="text-white font-semibold text-lg mb-1">
+            {experience.company}
+          </p>
+          <p className="text-white/60 text-sm mb-4 font-medium">
+            {experience.period}
+          </p>
+          <p className="text-white/80 leading-relaxed mb-4">
+            {experience.description}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {experience.skills.map((skill, i) => (
+              <span 
+                key={i} 
+                className="text-xs px-3 py-1.5 bg-sky-400/10 border border-sky-400/20 rounded-full text-sky-400 font-medium hover:bg-sky-400/20 transition-all duration-300"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    ),
+  }));
+
   return (
     <section id="experience" ref={ref} className="py-16 md:py-20 relative">
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-screen-lg mx-auto">
-          <SectionTitle>
-            <span className="text-gradient">Experience</span>
-          </SectionTitle>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <SectionTitle>
+              <span className="text-gradient">Experience</span>
+            </SectionTitle>
+          </motion.div>
 
           <div className="relative glow-container-intense">
-            {/* Vertical line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-sky-400/30"></div>
-
-            {/* Timeline items */}
-            <div className="space-y-10">
-              {experiences.map((experience, index) => (
-                <TimelineItem 
-                  key={index}
-                  experience={experience}
-                  isActive={activeExperience === index}
-                  isLeft={index % 2 === 0}
-                  ref={(el) => (experienceRefs.current[index] = el)}
-                  delay={index * 0.2}
-                />
-              ))}
-            </div>
+            <Timeline data={timelineData} />
           </div>
         </div>
       </div>
@@ -76,72 +114,6 @@ const Experience = React.forwardRef<HTMLElement, ExperienceProps>(({ activeExper
   );
 });
 
-interface TimelineItemProps {
-  experience: ExperienceItem;
-  isActive: boolean;
-  isLeft: boolean;
-  delay: number;
-}
-
-const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
-  ({ experience, isActive, isLeft, delay }, ref) => {
-    return (
-      <motion.div
-        ref={ref}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay }}
-        className={`relative experience-timeline-item ${isActive ? "active" : ""}`}
-      >
-        <div className={`timeline-node ${isActive ? "active" : ""}`}></div>
-        <div className="flex flex-col md:flex-row items-center">
-          {isLeft ? (
-            <>
-              <div className="md:w-1/2 md:text-right md:pr-12">
-                <TimelineContent experience={experience} isActive={isActive} alignment="right" />
-              </div>
-              <div className="md:w-1/2"></div> {/* Empty space on right */}
-            </>
-          ) : (
-            <>
-              <div className="md:w-1/2"></div> {/* Empty space on left */}
-              <div className="md:w-1/2 md:pl-12">
-                <TimelineContent experience={experience} isActive={isActive} alignment="left" />
-              </div>
-            </>
-          )}
-        </div>
-      </motion.div>
-    );
-  }
-);
-
-interface TimelineContentProps {
-  experience: ExperienceItem;
-  isActive: boolean;
-  alignment: 'left' | 'right';
-}
-
-const TimelineContent: React.FC<TimelineContentProps> = ({ experience, isActive, alignment }) => {
-  return (
-    <div className={`timeline-content ${isActive ? "active" : ""}`}>
-      <h4 className="text-xl font-bold text-sky-400">{experience.title}</h4>
-      <p className="text-white font-medium mt-1">{experience.company}</p>
-      <p className="text-white/60 text-sm mt-1">{experience.period}</p>
-      <p className="text-white/70 mt-3">{experience.description}</p>
-      <div className={`flex flex-wrap gap-2 mt-3 ${alignment === 'right' ? 'md:justify-end' : ''}`}>
-        {experience.skills.map((skill, i) => (
-          <span key={i} className="text-xs px-2 py-1 bg-sky-400/10 rounded-md text-sky-400">
-            {skill}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-};
-
 Experience.displayName = 'Experience';
-TimelineItem.displayName = 'TimelineItem';
 
 export default Experience;
