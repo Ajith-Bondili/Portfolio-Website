@@ -19,7 +19,7 @@ const Hero = React.forwardRef<HTMLElement>((props, ref) => {
       {/* Background boxes effect */}
       <Boxes />
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="container mx-auto px-4 md:px-12 relative z-10">
         <div className="hero-layout items-center">
           {/* Left side - Profile */}
           <div className="flex flex-col space-y-8">

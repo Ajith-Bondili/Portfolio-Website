@@ -68,8 +68,8 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
           ))}
         </div>
 
-      {/* Bottom gradient fade only - for seamless transition */}
-      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/80 to-transparent pointer-events-none"></div>
+      {/* Subtle bottom gradient fade - much softer transition */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/80 to-transparent pointer-events-none"></div>
     </div>
   );
 };
