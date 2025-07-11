@@ -62,7 +62,7 @@ const GridCellsEffect: React.FC<GridCellsEffectProps> = ({ showGrid }) => {
       if (!cells.length) return;
 
       // Number of cells to highlight (reduced to 1-4)
-      const numToHighlight = Math.floor(Math.random() * 4) + 1;
+      const numToHighlight = Math.floor(Math.random() * 3) + 1;
 
       for (let i = 0; i < numToHighlight; i++) {
         // Select a random cell
@@ -79,7 +79,7 @@ const GridCellsEffect: React.FC<GridCellsEffectProps> = ({ showGrid }) => {
       }
 
       // Schedule next highlight less frequently (between 1000ms and 2500ms)
-      setTimeout(highlightRandomCells, Math.random() * 1500 + 1000);
+      setTimeout(highlightRandomCells, Math.random() * 3000 + 2000);
     };
 
     // Start highlighting cells
