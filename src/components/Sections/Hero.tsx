@@ -122,17 +122,7 @@ const Hero = React.forwardRef<HTMLElement>((props, ref) => {
               </p>
 
               <div className="flex flex-wrap gap-4 pt-4">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link
-                    href="https://drive.google.com/file/d/1hvUQIGjs61z0sRBf1TBWU2Fn1zwvBO11/view?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="animated-border inline-flex items-center gap-2 px-6 py-3 bg-sky-400 text-black font-medium rounded-md hover:bg-sky-300 transition-colors"
-                  >
-                    View Resume
-                    <FileText size={16} />
-                  </Link>
-                </motion.div>
+
 
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Link

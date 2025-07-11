@@ -10,8 +10,8 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
   useEffect(() => {
     const loadingTimer = setTimeout(() => {
       setIsVisible(false);
-      setTimeout(onLoadingComplete, 800); // Wait for fade-out animation
-    }, 3000); // Show loading for 3 seconds
+      setTimeout(onLoadingComplete, 100); // Wait for fade-out animation
+    }, 1000); // Show loading for 3 seconds
 
     return () => clearTimeout(loadingTimer);
   }, [onLoadingComplete]);

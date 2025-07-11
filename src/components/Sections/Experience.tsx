@@ -20,11 +20,11 @@ const Experience = React.forwardRef<HTMLElement, ExperienceProps>(({ activeExper
   const experiences: ExperienceItem[] = [
     {
       title: "AI Software Engineer",
-      company: "Friedmann.AI",
+      company: "IBM - FriedmannAI",
       period: "May 2025 - Present",
       description:
-        "Building an AI-powered chat platform in collaboration with IBM engineers, with a focus on agentic reasoning, document ingestion, and conversational search. Contributing to backend API development and integrating LLM guardrails for an unbiased personal financial guide.",
-      skills: ["Next.js", "Node.js", "React", "Supabase", "Serverless Functions", "MongoDB", "Docker", "Postman", "AI Agents", "RAG"],
+        "Building an AI-powered financial advisor platform with IBM. Developing AI Agents and RAG infrastructure.",
+      skills: ["Next.js", "Node.js", "React", "Supabase", "Serverless Functions", "PostgreSQL", "Docker", "AI Agents", "RAG", "LangChain", "Python"],
     },
     {
       title: "Machine Learning Engineer",

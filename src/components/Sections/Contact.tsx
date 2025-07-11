@@ -78,17 +78,6 @@ const Contact = React.forwardRef<HTMLElement>((props, ref) => {
                   <Linkedin size={18} />
                 </motion.a>
 
-                <motion.a
-                  href="https://drive.google.com/file/d/1hvUQIGjs61z0sRBf1TBWU2Fn1zwvBO11/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-md bg-white/5 flex items-center justify-center text-white/60 hover:bg-sky-400/20 hover:text-sky-400 transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  aria-label="Resume"
-                >
-                  <FileText size={18} />
-                </motion.a>
               </div>
             </motion.div>
 
